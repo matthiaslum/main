@@ -3,25 +3,26 @@
 :imagesDir: ../images/matthiaslum.png
 :stylesDir: ../stylesheets
 
-== PROJECT: AddressBook - Level 3
+== PROJECT: Doctor on Call
 
 ---
 
 == Overview
 
-AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+Doctor on Call is a secure desktop address book application used for doctors to keep records of their patients' details, status and appointment details. The doctor logs in with his username and password. He interacts with it using a CLI and can  print a timetable showing him a list of all patients who have appointments with him. He is also able to refer patients to other doctors. Do note that the "person" in the traditional addresbook shall now be named patient.
 
 == Summary of contributions
 
-* *Major enhancement*: added *the ability to undo/redo previous commands*
-** What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-** Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-** Credits: _{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}_
+* *Major enhancement*: added a `DoctorsAppointment` command that generates a timetable for the doctor, displaying in chronological order the appointments he has.
+** What it does: First, it searches for all patients who are patients of this doctor. Then, it sorts them by their appointment date. Lastly, it removes the unimportant information of the patient and displays it on the UI.
+** Justification: This feature improves the productivity and time management skills of a doctor because in one glance, he is able to see all the appointments that he has. 
+** Highlights: This enhancement required the implementation of new attributes to a person. Two new columns were added to store the information about the doctor and the appointment date. It required changes to the existing add command and in-depth analysis of the parser, logic, person and mainwindow classes. The implementation of this command utilized several methods and packages such as the LocalDateTime package. The methods used to implement the new classes here were studied and used by other team members, especially for the `SortAppointment` command.
 
-* *Minor enhancement*: added a history command that allows the user to navigate to previous commands using up/down keys.
+** Credits: _{utilized the Java package LocalDateTime, and adapted much code from the name class corresponding to a person}_
 
-* *Code contributed*: [https://github.com[Functional code]] [https://github.com[Test code]] _{give links to collated code files}_
+* *Minor enhancement*: added two new columns that allows a doctor to add appointment date and doctors corresponding to a patient.
+
+* *Code contributed*: [https://nuscs2113-ay1819s2.github.io/dashboard-beta/#search=&sort=displayName&since=2019-02-10&until=2019-03-26&timeframe=day&reverse=false&groupSelect=groupByRepos&breakdown=false&tabAuthor=matthiaslum&tabRepo=CS2113-AY1819S2-T11-2_main_master[Reposense]] 
 
 * *Other contributions*:
 
